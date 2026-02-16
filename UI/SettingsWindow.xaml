@@ -1,0 +1,70 @@
+<Window x:Class="LangGuard.UI.SettingsWindow"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ Title="LangGuard Settings" Height="580" Width="700"
+ WindowStartupLocation="CenterScreen">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Typing session idle timeout (ms)" FontSize="14"/>
+            <TextBox x:Name="IdleTimeoutBox" Grid.Row="1" Height="28" Margin="0,6,0,12"/>
+
+            <CheckBox x:Name="PlayOnEveryKeyBox" Grid.Row="2" Content="Play sound on every letter key press" Margin="0,0,0,8"/>
+            <CheckBox x:Name="BeepOnLanguageChangeBox" Grid.Row="3" Content="Also play when language changes" Margin="0,0,0,8"/>
+            <CheckBox x:Name="StartWithWindowsBox" Grid.Row="4" Content="Start with Windows" Margin="0,0,0,16"/>
+
+            <TextBlock Text="Hotkey (convert clipboard EN↔HE)" Grid.Row="5" FontSize="14"/>
+            <Grid Grid.Row="6" Margin="0,6,0,12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="HotkeyBox" Grid.Column="0" Height="28" IsReadOnly="True"/>
+                <Button Content="Change..." Grid.Column="1" Margin="8,0,0,0" Padding="14,6" Click="ChangeHotkey_Click"/>
+            </Grid>
+
+            <TextBlock Text="Hebrew sound (WAV/MP3 file, optional)" Grid.Row="7" FontSize="14"/>
+            <Grid Grid.Row="8" Margin="0,6,0,12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="HebrewSoundBox" Grid.Column="0" Height="28"/>
+                <Button Content="Browse" Grid.Column="1" Margin="8,0,0,0" Padding="14,6" Click="BrowseHebrew_Click"/>
+                <Button Content="Test" Grid.Column="2" Margin="8,0,0,0" Padding="14,6" Click="TestHebrew_Click"/>
+            </Grid>
+
+            <TextBlock Text="English sound (WAV/MP3 file, optional)" Grid.Row="9" FontSize="14"/>
+            <Grid Grid.Row="10" Margin="0,6,0,16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="EnglishSoundBox" Grid.Column="0" Height="28"/>
+                <Button Content="Browse" Grid.Column="1" Margin="8,0,0,0" Padding="14,6" Click="BrowseEnglish_Click"/>
+                <Button Content="Test" Grid.Column="2" Margin="8,0,0,0" Padding="14,6" Click="TestEnglish_Click"/>
+            </Grid>
+
+            <StackPanel Grid.Row="11" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+                <Button Content="Save" Width="110" Margin="0,0,8,0" Click="Save_Click"/>
+                <Button Content="Cancel" Width="110" Click="Cancel_Click"/>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Window>
